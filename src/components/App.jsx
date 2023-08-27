@@ -15,7 +15,7 @@ export default function App() {
     }));
   };
 
-  const total = feedback.good + feedback.neutral + feedback.bad;
+  const total = Object.values(feedback).reduce((acc, value) => acc + value, 0);
 
   const positivePercentage =
     total === 0 ? 0 : Math.round((feedback.good * 100) / total);
